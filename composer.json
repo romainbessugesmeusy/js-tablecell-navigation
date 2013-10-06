@@ -1,0 +1,20 @@
+{
+    "name": "jquery.tablecellNavigation",
+    "repo": "romainbessugesmeusy/js-tablecell-navigation",
+    "description": "Navigate between table cells elements in a table (up, down, left, right, etc.)",
+    "version": "1.0",
+    "keywords": [
+        "dom",
+        "traversing",
+        "table",
+        "cell"
+    ],
+    "dependencies": {
+        "component/jquery": "*"
+    },
+    "development": {},
+    "license": "MIT",
+    "scripts": [
+        "jquery.tablecellNavigation.js"
+    ]
+}
