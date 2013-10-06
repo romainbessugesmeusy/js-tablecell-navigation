@@ -28,22 +28,38 @@ $.fn.cellCoordinates = function () {
     }
 };
 
-$.fn.cellDown = function () {
+$.fn.bottomCell = function () {
     var coord = this.cellCoordinates();
     return this.closest('tr').parent().find('tr').eq(coord.rowIndex + 1).find('td,th').eq(coord.colIndex);
 };
 
-$.fn.cellUp = function () {
+$.fn.bottomLeftCell = function(){
+    return this.bottomCell().leftCell();
+};
+
+$.fn.bottomRightCell = function(){
+    return this.bottomCell().rightCell();
+};
+
+$.fn.topCell = function () {
     var coord = this.cellCoordinates();
     return this.closest('tr').parent().find('tr').eq(coord.rowIndex - 1).find('td,th').eq(coord.colIndex);
 };
 
-$.fn.cellLeft = function () {
+$.fn.topLeftCell = function(){
+    return this.topCell().leftCell();
+};
+
+$.fn.topRightCell = function(){
+    return this.topCell().rightCell();
+};
+
+$.fn.leftCell = function () {
     var coord = this.cellCoordinates();
     return this.closest('tr').find('td,th').eq(coord.colIndex - 1);
 };
 
-$.fn.cellRight = function () {
+$.fn.rightCell = function () {
     var coord = this.cellCoordinates();
     return this.closest('tr').find('td,th').eq(coord.colIndex + 1);
 };

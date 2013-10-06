@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Tablecell Navigation</title>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../src/jquery.tablecellNavigation.js"></script>
+    <style type="text/css">
+        td {
+            border: 1px solid #949390;
+        }
+        td.selected {
+            background: #339423;
+        }
+        td.highlight {
+            background: #FF0033;
+        }
+    </style>
+</head>
+<body>
+<h1>jQuery Tablecell Navigation Demo</h1>
+
+<p>Click a cell to select it</p>
+
+<div id="controls">
+    <h2>Neighboors</h2>
+    <table>
+        <tr>
+            <td>
+                <button class="tl">topLeftCell</button>
+            </td>
+            <td>
+                <button class="t">topCell</button>
+            </td>
+            <td>
+                <button class="tr">topRightCell</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="l">leftCell</button>
+            </td>
+            <td></td>
+            <td>
+                <button class="r">rightCell</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="bl">bottomLeftCell</button>
+            </td>
+            <td>
+                <button class="b">bottomCell</button>
+            </td>
+            <td>
+                <button class="br">bottomRightCell</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="table-container">
+<table>
+<thead>
+<tr>
+    <th>Person</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Telephone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Sharon Reese</td>
+    <td>Bellante</td>
+    <td>Guinea-Bissau</td>
+    <td>06 99 40 03 41</td>
+</tr>
+<tr>
+    <td>Iliana Frank</td>
+    <td>Alnwick</td>
+    <td>Monaco</td>
+    <td>02 96 35 72 82</td>
+</tr>
+<tr>
+    <td>Cecilia Kelly</td>
+    <td>Wuppertal</td>
+    <td>Australia</td>
+    <td>08 19 65 45 49</td>
+</tr>
+<tr>
+    <td>Kasimir Evans</td>
+    <td>Midlands</td>
+    <td>Angola</td>
+    <td>07 14 97 69 49</td>
+</tr>
+<tr>
+    <td>Chava Ferguson</td>
+    <td>Bad Kreuznach</td>
+    <td>Germany</td>
+    <td>04 95 90 30 99</td>
+</tr>
+<tr>
+    <td>Idola Kelly</td>
+    <td>Kessenich</td>
+    <td>Algeria</td>
+    <td>04 05 60 28 51</td>
+</tr>
+<tr>
+    <td>Caesar Burgess</td>
+    <td>Legal</td>
+    <td>Barbados</td>
+    <td>02 52 49 73 46</td>
+</tr>
+<tr>
+    <td>Piper Oliver</td>
+    <td>Veldegem</td>
+    <td>Ghana</td>
+    <td>07 27 22 12 77</td>
+</tr>
+<tr>
+    <td>Zia Mcclain</td>
+    <td>Knoxville</td>
+    <td>Sweden</td>
+    <td>02 10 22 18 55</td>
+</tr>
+<tr>
+    <td>Cynthia Underwood</td>
+    <td>Enterprise</td>
+    <td>Chad</td>
+    <td>08 39 56 67 48</td>
+</tr>
+<tr>
+    <td>Keane Brennan</td>
+    <td>Tintange</td>
+    <td>Sudan</td>
+    <td>03 48 82 00 23</td>
+</tr>
+<tr>
+    <td>Iliana Cobb</td>
+    <td>Verona</td>
+    <td>Sri Lanka</td>
+    <td>09 90 81 91 04</td>
+</tr>
+<tr>
+    <td>Nelle Dillard</td>
+    <td>Baasrode</td>
+    <td>Dominica</td>
+    <td>05 27 61 00 99</td>
+</tr>
+<tr>
+    <td>Zachery Wilkins</td>
+    <td>Gelsenkirchen</td>
+    <td>Northern Mariana Islands</td>
+    <td>03 20 41 04 19</td>
+</tr>
+<tr>
+    <td>Belle Bright</td>
+    <td>Lathuy</td>
+    <td>Namibia</td>
+    <td>05 93 71 80 95</td>
+</tr>
+<tr>
+    <td>Alexis Maxwell</td>
+    <td>Signeulx</td>
+    <td>Chile</td>
+    <td>09 91 95 42 69</td>
+</tr>
+<tr>
+    <td>Octavius Hardin</td>
+    <td>Grosseto</td>
+    <td>Lesotho</td>
+    <td>06 95 75 16 89</td>
+</tr>
+<tr>
+    <td>Owen Ashley</td>
+    <td>Varsenare</td>
+    <td>South Sudan</td>
+    <td>03 28 84 87 57</td>
+</tr>
+<tr>
+    <td>Amela Watts</td>
+    <td>Norcia</td>
+    <td>Andorra</td>
+    <td>09 27 37 33 31</td>
+</tr>
+<tr>
+    <td>Katell Rosario</td>
+    <td>Cincinnati</td>
+    <td>Saint Vincent and The Grenadines</td>
+    <td>05 65 45 77 35</td>
+</tr>
+<tr>
+    <td>Clementine Foreman</td>
+    <td>Trani</td>
+    <td>Philippines</td>
+    <td>09 67 96 71 41</td>
+</tr>
+<tr>
+    <td>Raven Horn</td>
+    <td>Massarosa</td>
+    <td>Gabon</td>
+    <td>09 38 60 33 67</td>
+</tr>
+<tr>
+    <td>Garth Kidd</td>
+    <td>Orléans</td>
+    <td>Ecuador</td>
+    <td>09 64 13 48 03</td>
+</tr>
+<tr>
+    <td>Richard Key</td>
+    <td>Borgomasino</td>
+    <td>Turkmenistan</td>
+    <td>09 47 37 66 62</td>
+</tr>
+<tr>
+    <td>Troy Murphy</td>
+    <td>Rockhampton</td>
+    <td>Honduras</td>
+    <td>07 57 17 68 28</td>
+</tr>
+<tr>
+    <td>Miranda Norman</td>
+    <td>Stafford</td>
+    <td>Congo, the Democratic Republic of the</td>
+    <td>09 10 41 99 82</td>
+</tr>
+<tr>
+    <td>Hilda York</td>
+    <td>Yaxley</td>
+    <td>Gambia</td>
+    <td>07 72 31 98 91</td>
+</tr>
+<tr>
+    <td>Kitra Weiss</td>
+    <td>Sint-Denijs</td>
+    <td>Ukraine</td>
+    <td>04 06 03 62 31</td>
+</tr>
+<tr>
+    <td>Declan Bates</td>
+    <td>Freiburg</td>
+    <td>Cambodia</td>
+    <td>05 75 50 23 36</td>
+</tr>
+<tr>
+    <td>Delilah Joyner</td>
+    <td>Lowell</td>
+    <td>Japan</td>
+    <td>04 10 30 34 74</td>
+</tr>
+<tr>
+    <td>Eve Park</td>
+    <td>Labuissi?re</td>
+    <td>Barbados</td>
+    <td>04 03 41 82 74</td>
+</tr>
+<tr>
+    <td>Zoe Rivera</td>
+    <td>Uitkerke</td>
+    <td>Nepal</td>
+    <td>06 28 07 22 76</td>
+</tr>
+<tr>
+    <td>Cadman Bernard</td>
+    <td>Langen</td>
+    <td>Antigua and Barbuda</td>
+    <td>06 83 29 73 22</td>
+</tr>
+<tr>
+    <td>Branden Hopkins</td>
+    <td>Herdersem</td>
+    <td>Fiji</td>
+    <td>05 72 33 86 29</td>
+</tr>
+<tr>
+    <td>Karyn Cunningham</td>
+    <td>Salcito</td>
+    <td>Botswana</td>
+    <td>02 52 25 80 91</td>
+</tr>
+<tr>
+    <td>Nash Klein</td>
+    <td>Shipshaw</td>
+    <td>Canada</td>
+    <td>09 02 33 80 61</td>
+</tr>
+<tr>
+    <td>Kato Richardson</td>
+    <td>San Floriano del Collio</td>
+    <td>Portugal</td>
+    <td>05 12 72 32 55</td>
+</tr>
+<tr>
+    <td>Hammett Mcintosh</td>
+    <td>Spaniard's Bay</td>
+    <td>Saudi Arabia</td>
+    <td>05 54 06 30 97</td>
+</tr>
+<tr>
+    <td>Rahim Shannon</td>
+    <td>Shawville</td>
+    <td>Bahrain</td>
+    <td>09 25 60 08 27</td>
+</tr>
+<tr>
+    <td>Lucy Bennett</td>
+    <td>Ollolai</td>
+    <td>Montserrat</td>
+    <td>02 99 76 53 15</td>
+</tr>
+<tr>
+    <td>Kieran Mueller</td>
+    <td>Flin Flon</td>
+    <td>United Kingdom (Great Britain)</td>
+    <td>03 07 11 64 73</td>
+</tr>
+<tr>
+    <td>Scarlett Cash</td>
+    <td>Bierc?e</td>
+    <td>Pakistan</td>
+    <td>06 22 68 46 82</td>
+</tr>
+<tr>
+    <td>Gareth Lowe</td>
+    <td>Monteu Roero</td>
+    <td>Kenya</td>
+    <td>09 50 54 26 14</td>
+</tr>
+<tr>
+    <td>Samuel Shaffer</td>
+    <td>Barrhead</td>
+    <td>Mali</td>
+    <td>02 23 39 05 27</td>
+</tr>
+<tr>
+    <td>Myles Gardner</td>
+    <td>Notre-Dame-du-Nord</td>
+    <td>Côte D'Ivoire (Ivory Coast)</td>
+    <td>09 65 40 40 10</td>
+</tr>
+<tr>
+    <td>Hiram Mullen</td>
+    <td>Cairo Montenotte</td>
+    <td>Oman</td>
+    <td>08 44 69 69 39</td>
+</tr>
+<tr>
+    <td>Hilda Leblanc</td>
+    <td>Rechnitz</td>
+    <td>Bangladesh</td>
+    <td>02 97 41 60 61</td>
+</tr>
+<tr>
+    <td>Candice Clark</td>
+    <td>Lesve</td>
+    <td>Estonia</td>
+    <td>02 66 83 52 81</td>
+</tr>
+<tr>
+    <td>Jerry Blair</td>
+    <td>Paulatuk</td>
+    <td>Norfolk Island</td>
+    <td>05 90 90 19 76</td>
+</tr>
+<tr>
+    <td>Jamal Patrick</td>
+    <td>Kenosha</td>
+    <td>Saint Helena, Ascension and Tristan da Cunha</td>
+    <td>06 89 81 04 88</td>
+</tr>
+<tr>
+    <td>Gay Clark</td>
+    <td>Mulhouse</td>
+    <td>Montenegro</td>
+    <td>05 40 51 55 15</td>
+</tr>
+<tr>
+    <td>Giacomo Hensley</td>
+    <td>Moffat</td>
+    <td>Estonia</td>
+    <td>09 47 62 35 11</td>
+</tr>
+<tr>
+    <td>Chaim Merritt</td>
+    <td>Gressan</td>
+    <td>Mauritius</td>
+    <td>01 39 29 46 09</td>
+</tr>
+<tr>
+    <td>Levi Klein</td>
+    <td>Neufeld an der Leitha</td>
+    <td>Virgin Islands, British</td>
+    <td>01 03 53 39 00</td>
+</tr>
+<tr>
+    <td>Hollee Mcbride</td>
+    <td>IJlst</td>
+    <td>Eritrea</td>
+    <td>06 34 18 55 77</td>
+</tr>
+<tr>
+    <td>Clio Jennings</td>
+    <td>Terrance</td>
+    <td>Niue</td>
+    <td>02 22 72 37 58</td>
+</tr>
+<tr>
+    <td>Tate Shaffer</td>
+    <td>Caerphilly</td>
+    <td>Bangladesh</td>
+    <td>09 04 42 07 72</td>
+</tr>
+<tr>
+    <td>Debra Silva</td>
+    <td>Fortune</td>
+    <td>Kazakhstan</td>
+    <td>01 46 50 87 35</td>
+</tr>
+<tr>
+    <td>Morgan Fulton</td>
+    <td>Derby</td>
+    <td>Netherlands</td>
+    <td>05 35 34 43 99</td>
+</tr>
+<tr>
+    <td>Wynne Parrish</td>
+    <td>Bitterfeld-Wolfen</td>
+    <td>Haiti</td>
+    <td>02 36 08 64 51</td>
+</tr>
+<tr>
+    <td>Hammett Weeks</td>
+    <td>Tay</td>
+    <td>Tunisia</td>
+    <td>09 95 26 16 15</td>
+</tr>
+<tr>
+    <td>Laurel Thomas</td>
+    <td>Kitscoty</td>
+    <td>Viet Nam</td>
+    <td>05 59 19 15 52</td>
+</tr>
+<tr>
+    <td>Dane Palmer</td>
+    <td>Narcao</td>
+    <td>Trinidad and Tobago</td>
+    <td>04 22 31 23 75</td>
+</tr>
+<tr>
+    <td>Tucker Clark</td>
+    <td>Pogliano Milanese</td>
+    <td>Brunei</td>
+    <td>04 27 32 28 14</td>
+</tr>
+<tr>
+    <td>Elton Wiley</td>
+    <td>Dunfermline</td>
+    <td>Holy See (Vatican City State)</td>
+    <td>05 36 22 04 53</td>
+</tr>
+<tr>
+    <td>Rooney Reeves</td>
+    <td>Cinisi</td>
+    <td>Jamaica</td>
+    <td>04 73 58 77 51</td>
+</tr>
+<tr>
+    <td>Reese Adkins</td>
+    <td>Motta Visconti</td>
+    <td>Botswana</td>
+    <td>02 84 12 95 81</td>
+</tr>
+<tr>
+    <td>Summer Mckay</td>
+    <td>Stockport</td>
+    <td>Haiti</td>
+    <td>03 21 07 57 00</td>
+</tr>
+<tr>
+    <td>Shellie Shaffer</td>
+    <td>Vilna</td>
+    <td>Czech Republic</td>
+    <td>09 80 99 28 33</td>
+</tr>
+<tr>
+    <td>Davis Vincent</td>
+    <td>San Felice a Cancello</td>
+    <td>Sweden</td>
+    <td>04 77 91 02 30</td>
+</tr>
+<tr>
+    <td>Stella Schmidt</td>
+    <td>Vertou</td>
+    <td>Afghanistan</td>
+    <td>09 48 77 85 78</td>
+</tr>
+<tr>
+    <td>Xander Medina</td>
+    <td>Traiskirchen</td>
+    <td>Spain</td>
+    <td>04 60 24 40 24</td>
+</tr>
+<tr>
+    <td>Davis Morrow</td>
+    <td>Biesme-sous-Thuin</td>
+    <td>Laos</td>
+    <td>03 53 15 35 40</td>
+</tr>
+<tr>
+    <td>Dora Mueller</td>
+    <td>Milano</td>
+    <td>Argentina</td>
+    <td>01 10 69 33 06</td>
+</tr>
+<tr>
+    <td>Karyn Ochoa</td>
+    <td>Kansas City</td>
+    <td>Aruba</td>
+    <td>09 82 53 51 67</td>
+</tr>
+<tr>
+    <td>Zelda Fox</td>
+    <td>Cicagna</td>
+    <td>Colombia</td>
+    <td>01 64 76 58 62</td>
+</tr>
+<tr>
+    <td>Aidan Mathis</td>
+    <td>Vandoeuvre-les-Nancy</td>
+    <td>Tuvalu</td>
+    <td>06 34 34 31 79</td>
+</tr>
+<tr>
+    <td>Fritz Burke</td>
+    <td>Leut</td>
+    <td>Comoros</td>
+    <td>01 81 30 29 59</td>
+</tr>
+<tr>
+    <td>August Shaw</td>
+    <td>Chippenham</td>
+    <td>Dominica</td>
+    <td>03 62 86 92 02</td>
+</tr>
+<tr>
+    <td>Indigo Huber</td>
+    <td>Gander</td>
+    <td>Jordan</td>
+    <td>04 97 51 83 31</td>
+</tr>
+<tr>
+    <td>Lionel Camacho</td>
+    <td>Kirkby Lonsdale</td>
+    <td>Venezuela</td>
+    <td>06 70 49 31 22</td>
+</tr>
+<tr>
+    <td>Charity Levine</td>
+    <td>Shippagan</td>
+    <td>San Marino</td>
+    <td>05 22 97 58 40</td>
+</tr>
+<tr>
+    <td>Forrest Jefferson</td>
+    <td>Hofstade</td>
+    <td>Heard Island and Mcdonald Islands</td>
+    <td>05 99 68 53 99</td>
+</tr>
+<tr>
+    <td>Duncan Black</td>
+    <td>Colwood</td>
+    <td>Nepal</td>
+    <td>05 78 05 23 71</td>
+</tr>
+<tr>
+    <td>Grant Bass</td>
+    <td>Newton Stewart</td>
+    <td>Lithuania</td>
+    <td>05 08 94 38 49</td>
+</tr>
+<tr>
+    <td>Alfreda Hammond</td>
+    <td>Surrey</td>
+    <td>New Caledonia</td>
+    <td>01 79 03 48 15</td>
+</tr>
+<tr>
+    <td>Ivory Schroeder</td>
+    <td>Sint-Ulriks-Kapelle</td>
+    <td>Comoros</td>
+    <td>06 85 63 07 29</td>
+</tr>
+<tr>
+    <td>Kylan Rowe</td>
+    <td>Norfolk County</td>
+    <td>Peru</td>
+    <td>06 57 91 76 08</td>
+</tr>
+<tr>
+    <td>Justine Newton</td>
+    <td>Fort Good Hope</td>
+    <td>Denmark</td>
+    <td>01 06 82 36 89</td>
+</tr>
+<tr>
+    <td>Stephanie Quinn</td>
+    <td>Roselies</td>
+    <td>Dominican Republic</td>
+    <td>08 98 66 31 33</td>
+</tr>
+<tr>
+    <td>Brenna Zimmerman</td>
+    <td>San Costantino Calabro</td>
+    <td>Guadeloupe</td>
+    <td>09 08 53 86 97</td>
+</tr>
+<tr>
+    <td>Fallon Hartman</td>
+    <td>Mansfield</td>
+    <td>Solomon Islands</td>
+    <td>03 46 06 50 51</td>
+</tr>
+<tr>
+    <td>Tamara Finley</td>
+    <td>Neuwied</td>
+    <td>Belize</td>
+    <td>02 52 29 12 77</td>
+</tr>
+<tr>
+    <td>Melyssa Hart</td>
+    <td>Casoli</td>
+    <td>Martinique</td>
+    <td>04 38 71 12 82</td>
+</tr>
+<tr>
+    <td>Harper Dotson</td>
+    <td>Fontenoille</td>
+    <td>Ireland</td>
+    <td>05 93 80 53 27</td>
+</tr>
+<tr>
+    <td>Halee Wilson</td>
+    <td>Dawson Creek</td>
+    <td>Bouvet Island</td>
+    <td>01 57 41 18 99</td>
+</tr>
+<tr>
+    <td>Cameran Carver</td>
+    <td>Maasmechelen</td>
+    <td>Timor-Leste</td>
+    <td>04 02 64 85 86</td>
+</tr>
+<tr>
+    <td>Flavia Alvarado</td>
+    <td>Kirkcaldy</td>
+    <td>Sudan</td>
+    <td>01 32 04 35 27</td>
+</tr>
+<tr>
+    <td>Idona Montoya</td>
+    <td>Vaughan</td>
+    <td>Nicaragua</td>
+    <td>04 67 55 15 87</td>
+</tr>
+<tr>
+    <td>Madeson Gross</td>
+    <td>Quinte West</td>
+    <td>Taiwan</td>
+    <td>03 91 28 25 02</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        var selectedCell;
+        $('#table-container').find('td').click(function () {
+            $('#table-container').find('td').removeClass('selected');
+            selectedCell = $(this);
+            selectedCell.addClass('selected');
+        });
+
+        $('#controls').find('button').click(function(){
+            $('#table-container').find('td').removeClass('highlight');
+
+            switch ($(this).attr('class')){
+                case 'l':
+                    selectedCell.leftCell().addClass('highlight');
+                    break;
+                case 'r':
+                    selectedCell.rightCell().addClass('highlight');
+                    break;
+                case 't':
+                    selectedCell.topCell().addClass('highlight');
+                    break;
+                case 'b':
+                    selectedCell.topCell().addClass('highlight');
+                    break;
+                case 'bl':
+                    selectedCell.bottomLeftCell().addClass('highlight');
+                    break;
+                case 'br':
+                    selectedCell.bottomRightCell().addClass('highlight');
+                    break;
+                case 'tl':
+                    selectedCell.topLeftCell().addClass('highlight');
+                    break;
+                case 'tr':
+                    selectedCell.topRightCell().addClass('highlight');
+                    break;
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>
